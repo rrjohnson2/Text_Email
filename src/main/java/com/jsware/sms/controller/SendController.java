@@ -41,11 +41,15 @@ public class SendController {
 	@ResponseBody
 	public Object send(@RequestBody TextMessage tm)
 	{
-		return Message.creator(
-				new PhoneNumber(tm.getPhone_number()), 
-				new PhoneNumber(AppConstants.api_keys.PHONE_NUMBER.getName()),
-				tm.getMessage())
-		.create();
+		try {
+			return Message.creator(
+					new PhoneNumber(tm.getPhone_number()), 
+					new PhoneNumber(AppConstants.api_keys.PHONE_NUMBER.getName()),
+					tm.getMessage())
+			.create();
+		} catch (Exception e) {
+			throw e;
+		}
 	}
 	
 	@RequestMapping(value="/sendEmail", method=RequestMethod.POST)
