@@ -40,7 +40,7 @@ public class SendController {
 	@ResponseBody
 	public String hello(@RequestBody TextMessage tm)
 	{ 
-		return "hello motto";
+		return "hello motto"; 
 	}
 	
 	@RequestMapping(value="/send", method=RequestMethod.POST)
