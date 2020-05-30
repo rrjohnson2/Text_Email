@@ -36,7 +36,7 @@ public class SendController {
 				);
 		
 	}
-	@RequestMapping(value="/", method=RequestMethod.POST)
+	@RequestMapping(value="/", method=RequestMethod.GET)
 	@ResponseBody
 	public String hello(@RequestBody TextMessage tm)
 	{ 
