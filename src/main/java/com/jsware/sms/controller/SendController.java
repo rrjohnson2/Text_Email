@@ -36,6 +36,12 @@ public class SendController {
 				);
 		
 	}
+	@RequestMapping(value="/", method=RequestMethod.POST)
+	@ResponseBody
+	public String hello(@RequestBody TextMessage tm)
+	{
+		return "hello motto";
+	}
 	
 	@RequestMapping(value="/send", method=RequestMethod.POST)
 	@ResponseBody
