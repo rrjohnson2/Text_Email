@@ -67,7 +67,7 @@ public class SendController {
 			emailservice.sendEmail(email);
 			return ResponseEntity
 		            .status(HttpStatus.ACCEPTED)                 
-		            .body(null);
+		            .body(email);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity
