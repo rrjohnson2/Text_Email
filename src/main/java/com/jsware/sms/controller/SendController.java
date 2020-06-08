@@ -54,6 +54,7 @@ public class SendController {
 					tm.getMessage())
 			.create();
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw e;
 		}
 	}
