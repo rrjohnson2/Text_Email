@@ -2,7 +2,9 @@ package com.jsware.sms.controller;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.logging.Logger;
 
+import java.util.logging.Level; 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,9 @@ import com.twilio.type.PhoneNumber;
 
 @Controller
 public class SendController {
+	
+	private final static Logger LOGGER =  
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME); 
 	
 	@Autowired
 	EmailService emailservice;
@@ -55,6 +60,7 @@ public class SendController {
 			.create();
 		} catch (Exception e) {
 			e.printStackTrace();
+			LOGGER.log(Level.SEVERE,e.getMessage());
 			throw e;
 		}
 	}
@@ -69,7 +75,7 @@ public class SendController {
 		            .status(HttpStatus.ACCEPTED)                 
 		            .body(email);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOGGER.log(Level.SEVERE,e.getMessage());
 			return ResponseEntity
 		            .status(HttpStatus.NOT_ACCEPTABLE)                 
 		            .body(null);
